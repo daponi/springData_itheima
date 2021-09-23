@@ -28,6 +28,7 @@ class JpaTest {
 //        EntityManagerFactory factory = Persistence.createEntityManagerFactory("myJpa");
 //        //2.通过实体管理器工厂获取实体管理器
 //        EntityManager em = factory.createEntityManager();
+        //从抽取JPAUtil工具类来获得EntityManager
         EntityManager em = JpaUtils.getEntityManager();
         //3.获取事务对象，开启事务
         EntityTransaction tx = em.getTransaction(); //获取事务对象
@@ -86,7 +87,7 @@ class JpaTest {
      *              * 当被查询结果对象被调用时，才会发送查询的sql语句：什么时候用，什么时候发送sql语句查询数据库
      *              IDEA在此处进行Debug验证时需要取消勾选一些ebug设置
      *
-     * 延迟加载（懒加载）
+         * 延迟加载（懒加载）
      *      * 得到的是一个动态代理对象
      *      * 什么时候用，什么使用才会查询
      */
@@ -153,8 +154,13 @@ class JpaTest {
 
         //i 查询客户
         Customer customer = entityManager.find(Customer.class,1l);
+        Customer customer2 = entityManager.find(Customer.class,1l);
+        System.err.println(customer==customer2);
         //ii 更新客户
         customer.setCustIndustry("it教育");
+        entityManager.clear();//把customer对象从缓存中清除出去
+        Customer customer3 = entityManager.find(Customer.class,1l);
+        System.err.println(customer2==customer3);
         entityManager.merge(customer);
 
         //4.提交事务

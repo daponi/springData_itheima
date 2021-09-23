@@ -25,4 +25,13 @@ public class SqlTest {
             System.out.println(customer);
         }
     }
+
+    @Test
+    public void testFindAllByName(){
+        List<Customer> list = customerDao.findAllByNameThroughSql("传智");
+        System.out.println("总共的数量："+list.size());
+        for (Customer customer : list) {
+            System.out.println(customer);
+        }
+    }
 }

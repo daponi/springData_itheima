@@ -41,9 +41,9 @@ public class Customer {
      *          @OneToMany : 配置一对多关系
      *              targetEntity ：对方对象的字节码对象
      *      2.配置外键（中间表）
-     *              @JoinColumn : 配置外键
-     *                  name：从表里外键字段名称
-     *                  referencedColumnName：参照的主表的主键字段名称
+     *              @JoinColumn : 配置外键，虽然外键注释是在主表配置但体现在从表
+     *                  name：从表的外键字段名称
+     *                  referencedColumnName：该外键所参照的主表的主键字段名称
      *
      *  * 在客户实体类上（一的一方）添加了外键了配置，所以对于客户而言，也具备了维护外键的作用
      *

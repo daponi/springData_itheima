@@ -35,7 +35,9 @@ public class LinkMan {
      *          @ManyToOne : 配置多对一关系
      *              targetEntity：对方的实体类字节码
      *      2.配置外键（中间表）
-     *
+     *          @JoinColumn:配置外键
+     *              name:从表里外键字段名称
+     *              referencedColumnName：该外键所参照的主表的主键字段名称
      * * 配置外键的过程，配置到了多的一方，就会在多的一方维护外键
      *
      */

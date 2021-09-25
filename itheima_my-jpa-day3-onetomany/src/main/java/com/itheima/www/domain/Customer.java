@@ -3,6 +3,9 @@ package com.itheima.www.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
 
 /**
  * 1.实体类和表的映射关系
@@ -39,4 +42,6 @@ public class Customer {
 
     @Column(name="cust_source")
     private String custSource;
+
+    private Set<LinkMan> linkMans = new HashSet<>();
 }

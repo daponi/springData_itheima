@@ -1,4 +1,4 @@
-package com.itheima.www.dao;
+package com.itheima.www.repository;
 
 import com.itheima.www.domain.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;

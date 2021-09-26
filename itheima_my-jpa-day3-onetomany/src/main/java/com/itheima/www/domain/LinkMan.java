@@ -1,11 +1,14 @@
 package com.itheima.www.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
-@Data
 @Table(name = "cst_linkman")
 public class LinkMan {
 
@@ -38,11 +41,10 @@ public class LinkMan {
      *          @JoinColumn:配置外键
      *              name:从表里外键字段名称
      *              referencedColumnName：该外键所参照的主表的主键字段名称
-     * * 配置外键的过程，配置到了多的一方，就会在多的一方维护外键
+     * * 配置外键的过程，配置到了多的一方(即一对多中，多的一方），就会在多的一方维护外键
      *
      */
     @ManyToOne(targetEntity = Customer.class,fetch = FetchType.LAZY)
     @JoinColumn(name = "lkm_cust_id",referencedColumnName = "cust_id")
     private Customer customer;
-
 }

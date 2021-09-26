@@ -1,6 +1,6 @@
 package com.itheima.www.test;
 
-import com.itheima.www.dao.CustomerDao;
+import com.itheima.www.repository.CustomerDao;
 import com.itheima.www.domain.Customer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

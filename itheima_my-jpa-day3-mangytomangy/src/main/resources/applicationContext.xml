@@ -39,18 +39,16 @@
             </bean>
         </property>
 
-        <!--jpa的方言 ：高级的特性,即springData JPA支持了Hibernate方言 -->
+        <!--jpa的方言 ：高级的特性 -->
         <property name="jpaDialect" >
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
         </property>
-
 
         <!--注入jpa的配置信息
             加载jpa的基本配置信息和jpa实现方式（hibernate）的配置信息
             hibernate.hbm2ddl.auto : 自动创建数据库表
                 create ： 每次都会重新创建数据库表
                 update：有表不会重新创建，没有表会重新创建表
-                none:不做操作
         -->
         <property name="jpaProperties" >
             <props>
@@ -58,21 +56,17 @@
             </props>
         </property>
 
-
     </bean>
-
-
 
     <!--2.创建数据库连接池 -->
     <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
-<!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
-    <property name="username" value="root"></property>
+        <!--    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <property name="username" value="root"></property>
         <property name="password" value="1230123"></property>
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/my-studydb-02?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8" ></property>
-<!--        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>-->
+        <!--        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>-->
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
     </bean>
-
     <!--3.整合spring dataJpa-->
     <jpa:repositories base-package="com.itheima.www.repository" transaction-manager-ref="transactionManager"
                    entity-manager-factory-ref="entityManagerFactoty" ></jpa:repositories>
@@ -97,16 +91,12 @@
 
     <!-- 5.aop-->
     <aop:config>
-        <aop:pointcut id="pointcut" expression="execution(* com.itheima.www.service.*.*(..))" />
+        <aop:pointcut id="pointcut" expression="execution(* com.itheima.www.*.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
     </aop:config>
 
 
     <!--5.声明式事务 -->
-    <!-- JPA事务管理器  -->
-<!--    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory" />
-    </bean>-->
 
     <!-- 6. 配置包扫描-->
     <context:component-scan base-package="com.itheima.www" ></context:component-scan>

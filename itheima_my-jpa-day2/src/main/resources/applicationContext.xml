@@ -57,8 +57,8 @@
     </bean>
 
     <!--3.整合spring dataJpa-->
-    <jpa:repositories base-package="com.itheima.www.dao" transaction-manager-ref="transactionManager"
-                   entity-manager-factory-ref="entityManagerFactoty" ></jpa:repositories>
+    <jpa:repositories base-package="com.itheima.www.repository" transaction-manager-ref="transactionManager"
+                      entity-manager-factory-ref="entityManagerFactoty" ></jpa:repositories>
 
     <!--4.配置事务管理器 -->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">

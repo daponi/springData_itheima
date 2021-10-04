@@ -6,7 +6,7 @@ Learning springData through Itheima
 
 视频：https://www.bilibili.com/video/BV1hE411s72B
 
-资料：当前目录/Spring Data JPA.zip
+课件：当前目录/file
 
 
 
